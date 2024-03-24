@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: model/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./model:/app/model
+
+  client:
+    build:
+      context: .
+      dockerfile: webapp/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./webapp:/app/webapp
